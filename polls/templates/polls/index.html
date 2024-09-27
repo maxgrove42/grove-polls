@@ -2,16 +2,17 @@
 {% block title %}Questions{% endblock %}
 {% block content %}
   {% if latest_question_list %}
-    <ul>
+    <h2 class="f4 dark-gray">Choose a question to vote on:</h2>
+    <ul class="list pl0">
       {% for question in latest_question_list %}
-      <li>
-        <a href="{% url 'polls:detail' question.id %}">
+      <li class="bg-light-gray pa3 mb3 br3 shadow-1">
+        <a href="{% url 'polls:detail' question.id %}" class="link dim dark-blue f5">
           {{ question.question_text }}
         </a>
       </li>
       {% endfor %}
     </ul>
   {% else %}
-  <p>No polls are available.</p>
+    <p class="i light-red">No polls are available.</p>
   {% endif %}
 {% endblock %}
