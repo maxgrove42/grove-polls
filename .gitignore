@@ -20,5 +20,3 @@ venv/
 # Packages
 node_modules
 dist
-
-.env
