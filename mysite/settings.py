@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jwm)_)#bgmv4gb5vid^)l(c=*fj8jsp=wg&^@x5g&3*1dt*txi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://grove-polls-dev.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
