@@ -1,2 +1,18 @@
-.pyc
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+__pycache__/
 **/__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Virtual Environment
+venv/
+**/venv/
