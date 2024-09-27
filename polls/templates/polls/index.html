@@ -1,12 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Polls</title>
-  </head>
-  <body>
-    {% if latest_question_list %}
+{% extends 'base.html' %}
+{% block title %}Questions{% endblock %}
+{% block content %}
+  {% if latest_question_list %}
     <ul>
       {% for question in latest_question_list %}
       <li>
@@ -16,8 +11,7 @@
       </li>
       {% endfor %}
     </ul>
-    {% else %}
-    <p>No polls are available.</p>
-    {% endif %}
-  </body>
-</html>
+  {% else %}
+  <p>No polls are available.</p>
+  {% endif %}
+{% endblock %}
