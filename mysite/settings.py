@@ -29,7 +29,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['http://grove-polls-dev.us-east-1.elasticbeanstalk.com',
                  'localhost',
                  '127.0.0.1',
-                 '*']
+                 '172.31.26.22']
 
 
 # Application definition
