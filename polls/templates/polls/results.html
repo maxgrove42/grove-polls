@@ -6,16 +6,16 @@
   <ul class="list pl0">
     {% for choice in question.choice_set.all %}
       <li class="bg-light-gray pa3 mb3 br3 shadow-1 flex justify-between items-center">
-        <span class="f4 dark-gray">{{ choice.choice_text }}</span>
-        <span class="f5 b dark-blue">{{ choice.votes }} vote{{ choice.votes|pluralize:"s" }}</span>
+        <span class="f3 dark-gray">{{ choice.choice_text }}</span>
+        <span class="f3 b dark-blue">{{ choice.votes }} vote{{ choice.votes|pluralize:"s" }}</span>
       </li>
     {% endfor %}
   </ul>
 
-  <a href="{% url 'polls:detail' question.id %}" class="f5 link dim br2 ph3 pv2 mt3 dib white bg-dark-blue">
+  <a href="{% url 'polls:detail' question.id %}" class="f4 link dim br2 ph3 pv2 mt3 dib white bg-dark-blue">
     Vote again?
   </a>
-  <a href="{% url 'polls:index' %}" class="f5 link dim br2 ph3 pv2 mt3 dib white bg-dark-blue">
+  <a href="{% url 'polls:index' %}" class="f4 link dim br2 ph3 pv2 mt3 dib white bg-dark-blue">
     Return to all questions
   </a>
 {% endblock %}

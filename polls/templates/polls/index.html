@@ -2,14 +2,14 @@
 {% block title %}Questions{% endblock %}
 {% block content %}
   {% if latest_question_list %}
-    <h2 class="f4 dark-gray">Choose a question to vote on:</h2>
+    <h2 class="f3 dark-gray">Choose a question to vote on:</h2>
     <ul class="list pl0">
       {% for question in latest_question_list %}
-      <li class="bg-light-gray pa3 mb3 br3 shadow-1">
-        <a href="{% url 'polls:detail' question.id %}" class="link dim dark-blue f5">
-          {{ question.question_text }}
-        </a>
-      </li>
+      <a href="{% url 'polls:detail' question.id %}" class="link dim dark-blue">
+        <li class="bg-light-gray pa3 mb3 br3 shadow-1 hover-bg-moon-gray">
+          <span class="f3">{{ question.question_text }}</span>
+        </li>
+      </a>
       {% endfor %}
     </ul>
   {% else %}

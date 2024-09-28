@@ -7,7 +7,7 @@
       <legend class="f2 mb2 dark-blue">{{ question.question_text }}</legend>
 
       {% if error_message %}
-        <p class="bg-washed-red pa2"><strong>{{ error_message }}</strong></p>
+        <p class="bg-washed-red pa2 f4"><strong>{{ error_message }}</strong></p>
       {% endif %}
 
       {% for choice in question.choice_set.all %}
@@ -17,16 +17,16 @@
             name="choice"
             id="choice{{ forloop.counter }}"
             value="{{ choice.id }}"
-            class="mr2"
+            class="mr2 pointer"
           />
-          <label for="choice{{ forloop.counter }}" class="f4 dark-gray">{{ choice.choice_text }}</label>
+          <label for="choice{{ forloop.counter }}" class="f3 dark-gray pointer">{{ choice.choice_text }}</label>
         </div>
       {% endfor %}
     </fieldset>
 
-    <input type="submit" value="Vote" class="f5 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue b-gray">
+    <input type="submit" value="Vote" class="f4 link dim br2 ph3 pv2 pointer mb2 dib white bg-dark-blue b-gray">
   </form>
-  <a href="{% url 'polls:index' %}" class="f5 link dim br2 ph3 pv2 mt3 dib white bg-dark-blue">
+  <a href="{% url 'polls:index' %}" class="f4 link dim br2 ph3 pv2 mt3 dib white bg-dark-blue">
     Return to all questions
   </a>
 {% endblock %}
