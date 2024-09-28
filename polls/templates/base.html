@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
+    /> -->
+    <style>
+      html, body {
+        height: 100%;
+      }
+    </style>
+    {% block extra_head %}
+    <!-- Additional CSS or JS can be inserted by child templates -->
+    {% endblock %}
+  </head>
+  <body class="bg-near-white flex flex-column">
+    <header class="pa1 pl2 bg-green shadow-4">
+      <div class="flex items-center">
+        <h1 class="f4 near-black tracked-tight">Max's Polling Site</h1>
+      </div>
+    </header>
+
+    <main class="pa3 flex-grow-1">
+      {% block content %}
+      <!-- Default content, if not overridden -->
+      {% endblock %}
+    </main>
+
+    <footer class="pa1 pl2 bg-light-green mt4">
+      <p>&copy; Made by Max Grove in 2024</p>
+    </footer>
+
+    {% block extra_js %}
+    <!-- Additional JS can be inserted by child templates -->
+    {% endblock %}
+  </body>
+</html>

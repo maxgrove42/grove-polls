@@ -26,9 +26,10 @@ SECRET_KEY = 'django-insecure-jwm)_)#bgmv4gb5vid^)l(c=*fj8jsp=wg&^@x5g&3*1dt*txi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['grove-polling-dev-dev.us-east-1.elasticbeanstalk.com',
+ALLOWED_HOSTS = ['http://grove-polls-dev.us-east-1.elasticbeanstalk.com',
                  'localhost',
-                 '127.0.0.1']
+                 '127.0.0.1',
+                 '*']
 
 
 # Application definition
@@ -77,28 +78,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if 'RDS_DB_NAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'django-images',
-            'USER': 'django-images',
-            'PASSWORD': 'complexpassword123',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
+}
 
 
 # Password validation
