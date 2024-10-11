@@ -6,28 +6,29 @@ python:
 install:
   - pip install -r requirements.txt
 
-script:
-  - black ./mysite ./polls
-  - black --check ./mysite ./polls
-  - flake8 ./mysite ./polls
-  - coverage run --source='polls,mysite' manage.py test
-
-after_script:
-  - coveralls
-
 jobs:
   include:
-    - if: type = pull_request
+    - stage: test
+      if: type = pull_request
+      script:
+        - black ./mysite ./polls
+        - black --check ./mysite ./polls
+        - flake8 ./mysite ./polls
+        - coverage run --source='polls,mysite' manage.py test
+      after_script:
+        - coveralls
 
-deploy:
-  provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  region: $AWS_REGION
-  app: $AWS_APPLICATION
-  env: $AWS_ENVIRONMENT
-  bucket_name: "elasticbeanstalk-us-east-1-149536460878"
-  bucket_path: "grove-polls-v2/"
-  on:
-    repo: grove-polls
-    branch: main
+    - stage: deploy
+      if: branch = main AND type != push
+      deploy:
+        provider: elasticbeanstalk
+        access_key_id: $AWS_ACCESS_KEY_ID
+        secret_access_key: $AWS_SECRET_ACCESS_KEY
+        region: $AWS_REGION
+        app: $AWS_APPLICATION
+        env: $AWS_ENVIRONMENT
+        bucket_name: "elasticbeanstalk-us-east-1-149536460878"
+        bucket_path: "grove-polls-v2/"
+        on:
+          repo: grove-polls
+          branch: main
