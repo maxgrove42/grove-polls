@@ -19,7 +19,7 @@ jobs:
         - coveralls
 
     - stage: deploy
-      if: branch = main AND type != pull
+      if: branch = main AND type != pull_request
       deploy:
         provider: elasticbeanstalk
         access_key_id: $AWS_ACCESS_KEY_ID
