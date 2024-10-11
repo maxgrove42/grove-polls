@@ -1,26 +1,30 @@
-# Byte-compiled / optimized / DLL files
-*.py[cod]
-**/*.py[cod]
+.env
+
+# Python
+*.pyc
 __pycache__/
-**/__pycache__/
-*.so
-*.egg
-*.egg-info/
-dist/
-build/
+
+# Virtual environment
+venv/
+
+# Django
+db.sqlite3
+
+# Mac OS
+.DS_Store
+
+# Node Modules
+node_modules/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-# Virtual Environment
-venv/
-**/venv/
+# CSS build files
+src/static/CACHE/
+src/static/css/input.css
+*.log
 
-# Packages
-node_modules
-dist
-
-.env
-.DS_Store
+# Static
+staticfiles/

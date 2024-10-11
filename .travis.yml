@@ -1,0 +1,36 @@
+language: python
+dist: bionic
+os: linux
+python:
+  - "3.11"
+
+jobs:
+  include:
+    - stage: test
+      if: type = pull_request
+      install:
+        - pip install -r requirements.txt
+      script:
+        - black ./mysite ./polls
+        - black --check ./mysite ./polls
+        - flake8 ./mysite ./polls
+        - coverage run --source='polls,mysite' manage.py test
+      after_script:
+        - coveralls
+
+    - stage: deploy
+      if: branch = main AND type = push
+      install:
+        - pip install -r requirements.txt
+      deploy:
+        provider: elasticbeanstalk
+        access_key_id: $AWS_ACCESS_KEY_ID
+        secret_access_key: $AWS_SECRET_ACCESS_KEY
+        region: $AWS_REGION
+        app: $AWS_APPLICATION
+        env: $AWS_ENVIRONMENT
+        bucket_name: "elasticbeanstalk-us-east-1-149536460878"
+        bucket_path: "grove-polls-v2/"
+        on:
+          repo: grove-polls
+          branch: main
