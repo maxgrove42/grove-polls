@@ -26,11 +26,10 @@ jobs:
         provider: elasticbeanstalk
         access_key_id: $AWS_ACCESS_KEY_ID
         secret_access_key: $AWS_SECRET_ACCESS_KEY
-        region: $AWS_REGION
-        app: $AWS_APPLICATION
-        env: $AWS_ENVIRONMENT
+        region: "us-east-1"
+        app: " grove-polls-v2"
+        env: "grove-polls-v2-dev"
         bucket_name: "elasticbeanstalk-us-east-1-149536460878"
-        bucket_path: "grove-polls-v2/"
         on:
           repo: grove-polls
           branch: main
