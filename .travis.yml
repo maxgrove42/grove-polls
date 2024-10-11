@@ -11,3 +11,8 @@ script:
   - black --check ./mysite ./polls
   - flake8 ./mysite ./polls
   - coverage run --source='polls,mysite' manage.py test
+  - coveralls
+
+jobs:
+  include:
+    - if: type = pull_request
