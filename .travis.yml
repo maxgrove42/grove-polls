@@ -20,6 +20,10 @@ jobs:
 
     - stage: deploy
       if: branch = main AND type != pull_request
+      script:
+        - echo "Deploying..."
+      after_script:
+        - echo "Finished deploying!"
       deploy:
         provider: elasticbeanstalk
         access_key_id: $AWS_ACCESS_KEY_ID
@@ -29,5 +33,5 @@ jobs:
         env: "grove-polls-v2-dev"
         bucket_name: "elasticbeanstalk-us-east-1-149536460878"
       on:
-        repo: "grove-polls"
+        repo: maxgrove42/grove-polls
         branch: main
