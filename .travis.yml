@@ -19,15 +19,15 @@ jobs:
         - coveralls
 
     - stage: deploy
-      if: branch = main AND type = push
+      if: branch = main AND type != pull
       deploy:
         provider: elasticbeanstalk
         access_key_id: $AWS_ACCESS_KEY_ID
         secret_access_key: $AWS_SECRET_ACCESS_KEY
         region: "us-east-1"
-        app: " grove-polls-v2"
+        app: "grove-polls-v2"
         env: "grove-polls-v2-dev"
         bucket_name: "elasticbeanstalk-us-east-1-149536460878"
-        on:
-          repo: grove-polls
-          branch: main
+      on:
+        repo: "grove-polls"
+        branch: main
