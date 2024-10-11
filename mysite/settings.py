@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-jwm)_)#bgmv4gb5vid^)l(c=*fj8jsp=wg&^@x5g&3*1dt*txi
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "grove-polls-dev.us-east-1.elasticbeanstalk.com",
+    "grove-polls-v2-dev.us-east-1.elasticbeanstalk.com",
     "localhost",
     "127.0.0.1",
 ]
