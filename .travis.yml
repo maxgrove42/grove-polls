@@ -21,9 +21,14 @@ jobs:
     - stage: deploy
       if: branch = main AND type != pull_request
       script:
+        - black ./mysite ./polls
+        - black --check ./mysite ./polls
+        - flake8 ./mysite ./polls
+        - coverage run --source='polls,mysite' manage.py test
         - echo "Deploying..."
       after_script:
         - echo "Finished deploying!"
+        - coveralls
       deploy:
         provider: elasticbeanstalk
         access_key_id: $AWS_ACCESS_KEY_ID
