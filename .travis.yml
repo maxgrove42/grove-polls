@@ -35,6 +35,6 @@ jobs:
         app: "grove-polls-v2"
         env: "grove-polls-v2-dev"
         bucket_name: "elasticbeanstalk-us-east-1-149536460878"
-      on:
-        repo: maxgrove42/grove-polls
-        branch: main
+        on:
+          repo: maxgrove42/grove-polls
+          branch: main
